@@ -1,0 +1,7 @@
+venv/
+/media/products
+/media/qr_code
+/media/qr_codes
+db.sqlite3
+
+
