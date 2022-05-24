@@ -16,7 +16,7 @@ def sign_in(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return redirect('base/index')
+                    return redirect('index')
                 else:
                     return HttpResponse("Аккаунт неактивирован")
             else:

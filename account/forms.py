@@ -6,5 +6,5 @@ class LoginForm(forms.Form):
         attrs={"class": "form-control"}
     ))
     password = forms.CharField(widget=forms.PasswordInput(
-        attrs={"class": "form-control"}
+        attrs={"class": "form-control"},
     ))
