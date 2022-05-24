@@ -16,10 +16,11 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = (
         "name",
         "category",
-        "price",
         "is_active",
         "created",
         "number_doc",
+        "created",
+        "updated",
     )
     search_fields = (
         "name",

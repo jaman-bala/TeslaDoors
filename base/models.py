@@ -18,11 +18,10 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.PROTECT)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT, verbose_name='Категории')
     name = models.CharField(verbose_name="Название", max_length=200)
     number_doc = models.CharField(verbose_name="Номер Договора", unique=True, max_length=200)
-    price = models.DecimalField(verbose_name="Цена", max_digits=10, decimal_places=2)
-    image = models.ImageField("Фото", upload_to="products/images/")
+    image = models.ImageField("Прикрепить файл", blank=True, null=True, upload_to="products/images/")
     qr_code = models.ImageField(upload_to='qr_codes', blank=True)
     is_active = models.BooleanField("Активный", default=True)
 
