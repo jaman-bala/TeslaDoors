@@ -1,12 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load  static %}
+
+
+{% block content %}
 <div class="container">
-            <img src="{{ form.qr_code.url }}" class="rounded mx-auto d-block" alt="...">
+             <div class="container">
+                <div class="col-sm-12">
+                    <div class="table-responsive">
+                        <table style="box-sizing:border-box" class="table table-dark table-striped">
+                            <thead>
+                            <tr>
+
+                                <th scope="col">Название</th>
+                                <th scope="col">Номер договора</th>
+                                <th scope="col">QR code</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for information in informations %}
+                            <tr>
+
+
+                                <td>{{ information.name }}</td>
+                                <td class="text-left">{{ information.number_doc }}</td>
+                                <td>
+                                    <img style="width:100px; margin-right:30px;" src="{{ information.qr_code.url }}" alt="">
+                                    <a class="btn" href="{{ information.qr_code.url }}" download>
+                                        <i style="" class="bi bi-file-earmark-arrow-down-fill"></i>
+                                    </a>
+
+
+                                </td>
+
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
         </div>
-</body>
-</html>
+{% endblock %}

@@ -18,7 +18,7 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.PROTECT, blank=True, null=True, verbose_name='Категории')
+    category = models.ForeignKey(Category, on_delete=models.PROTECT, verbose_name='Категории')
     name = models.CharField(verbose_name="Название", max_length=200)
     number_doc = models.CharField(verbose_name="Номер Договора", unique=True, max_length=200)
     image = models.ImageField("Прикрепить файл", blank=True, null=True, upload_to="products/images/")

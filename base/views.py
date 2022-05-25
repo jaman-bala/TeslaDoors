@@ -1,34 +1,21 @@
-from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import FormView, TemplateView
-
+from django.views.generic import FormView, TemplateView, ListView
+#
+from .models import Product
 from .forms import ProductForm
 
 
-# def index(request):
-#     """Process images uploaded by users"""
-#     if request.method == 'POST':
-#         form = ProductForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             img_obj = form.instance
-#             return render(request, 'index.html',
-#                           {'form': form, 'img_obj': img_obj})
-#
-#     else:
-#         form = ProductForm()
-#     return render(request, 'index.html', {'form': form, 'index': index})
-
-
-class Index(FormView):
+class Index(FormView, ListView):
+    model = Product
     form_class = ProductForm
+    context_object_name = 'informations'
     template_name = 'index.html'
     success_url = reverse_lazy('index')
 
     def form_valid(self, form):
         form.save()
         img_obj = form.instance
-        return redirect('repos', {'form': form, 'img_obj': img_obj})
+        return super().form_valid(form)
 
 
 class ReposView(TemplateView):
