@@ -24,4 +24,5 @@ def sign_in(request):
 
     else:
         form = LoginForm()
+
     return render(request, 'login.html', {"form": form})

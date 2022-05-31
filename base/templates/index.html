@@ -157,6 +157,7 @@ span.input-group-addon i {
                                 <th scope="col">Название</th>
                                 <th scope="col">Номер договора</th>
                                 <th scope="col">QR code</th>
+                                <th scope="col">Дата добовления</th>
 
                             </tr>
                             </thead>
@@ -172,6 +173,7 @@ span.input-group-addon i {
                                     <a class="btn" href="{{ information.qr_code.url }}" download>
                                         <i style="" class="bi bi-file-earmark-arrow-down-fill"></i>
                                     </a>
+                                    <td class="text-left">{{ information.created }}</td>
 
 
                                 </td>

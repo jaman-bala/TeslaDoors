@@ -18,6 +18,10 @@ class Index(FormView, ListView):
         return super().form_valid(form)
 
 
-class ReposView(TemplateView):
+class ReposView(ListView):
+    model = Product
+    context_object_name = 'informationsi'
     template_name = 'repos.html'
     success_url = reverse_lazy('repos')
+
+
