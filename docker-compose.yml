@@ -1,8 +1,8 @@
 version: "3.7"
 
 services:
-  bach_chai_app:
-    container_name: bach_chai_app
+  doors_app:
+    container_name: doors_app
     restart: always
     build:
       context: .
@@ -22,7 +22,7 @@ services:
 
 
   db:
-    container_name: bach_chai_db
+    container_name: doors_db
     restart: always
     image: postgres:12.4-alpine
     volumes:
