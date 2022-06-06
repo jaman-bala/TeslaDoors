@@ -1,21 +1,20 @@
 
 from django.contrib import admin
 
-from .models import Product, Category
+from .models import Product
 # Register your models here.
 
 
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    prepopulated_fields = {"slug": ("name",)}
-    list_display = ("name", "id")
+# @admin.register(Category)
+# class CategoryAdmin(admin.ModelAdmin):
+#     prepopulated_fields = {"slug": ("name",)}
+#     list_display = ("name", "id")
 
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         "name",
-        "category",
         "is_active",
         "created",
         "number_doc",
@@ -26,11 +25,11 @@ class ProductAdmin(admin.ModelAdmin):
         "name",
         "price",
         "number_doc",
-        "category__name",
+
 
     )
     list_filter = (
-        "category__name",
+
         "is_active",
         "created",
     )

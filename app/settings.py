@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv("POSTGRES_DB", default='doors_db'),
+        'USER': os.getenv("POSTGRES_USER", default='doors_user'),
+        'PASSWORD': os.getenv("POSTGRES_PASSWORD", default='doors2022!'),
+        'HOST': os.getenv("POSTGRES_HOST", default='127.0.0.1'),
+        'PORT': os.getenv("POSTGRES_PORT", default='5432'),
     }
 }
 

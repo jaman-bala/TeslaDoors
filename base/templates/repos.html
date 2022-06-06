@@ -94,12 +94,13 @@ span.input-group-addon i {
     <div class="container">
         <div class="col-sm-12">
             <div class="table-responsive">
-                <table style="box-sizing:border-box" class="table table-dark table-striped">
+                <table style="box-sizing:border-box" class="table table-success table-striped">
                     <thead>
                     <tr>
                         <th scope="col">Название</th>
                         <th scope="col">Номер договора</th>
                         <th scope="col">QR code</th>
+                        <th scope="col">Дата договора</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -111,6 +112,7 @@ span.input-group-addon i {
                             <img style="width:100px; margin-right:30px;" src="{{ information.qr_code.url }}" alt="">
                             <a class="btn" href="{{ information.qr_code.url }}" download>
                                 <i style="" class="bi bi-file-earmark-arrow-down-fill"></i>
+                                <td class="text-left">{{ information.date }}</td>
                             </a>
                         </td>
                     </tr>

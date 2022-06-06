@@ -99,9 +99,9 @@ span.input-group-addon i {
                 <form method="POST" action=".">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label style="width:100%" class="cols-sm-2 control-label">{{form.category.label}}</label>
+                        <label style="width:100%" class="cols-sm-2 control-label">{{form.date.label}}</label>
 
-                        {{form.category}}
+                        {{form.date}}
                         <label style="width:100%"  class="cols-sm-2 control-label">{{form.name.label}}</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
@@ -150,7 +150,7 @@ span.input-group-addon i {
             <div class="container">
                 <div class="col-sm-12">
                     <div class="table-responsive">
-                        <table style="box-sizing:border-box" class="table table-dark table-striped">
+                        <table style="box-sizing:border-box" class="table table-success table-striped">
                             <thead>
                             <tr>
 

@@ -5,26 +5,26 @@ from django.core.files import File
 from PIL import Image, ImageDraw
 
 
-class Category(models.Model):
-    name = models.CharField("Название", max_length=50, unique=True)
-    slug = models.SlugField(max_length=50, unique=True)
-
-    class Meta:
-        verbose_name = "Категория"
-        verbose_name_plural = "Категории"
-
-    def __str__(self):
-        return self.name
+# class Category(models.Model):
+#     name = models.CharField("Название", max_length=50, unique=True)
+#     slug = models.SlugField(max_length=50, unique=True)
+#
+#     class Meta:
+#         verbose_name = "Категория"
+#         verbose_name_plural = "Категории"
+#
+#     def __str__(self):
+#         return self.name
 
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.PROTECT, verbose_name='Категории')
+    # category = models.ForeignKey(Category, on_delete=models.PROTECT, verbose_name='Категории')
     name = models.CharField(verbose_name="Название", max_length=200)
     number_doc = models.CharField(verbose_name="Номер Договора", unique=True, max_length=200)
     image = models.ImageField("Прикрепить файл", blank=True, null=True, upload_to="products/images/")
     qr_code = models.ImageField(upload_to='qr_codes', blank=True)
     is_active = models.BooleanField("Активный", default=True)
-
+    date = models.DateField(verbose_name='Дата договора', blank=True, null=True)
     created = models.DateTimeField(verbose_name="Дата создание", auto_now_add=True)
     updated = models.DateTimeField(verbose_name="Дата обновления", auto_now=True)
 
