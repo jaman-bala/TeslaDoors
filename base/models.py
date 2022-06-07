@@ -1,24 +1,12 @@
 from django.db import models
+from django.core.files import File
+
 import qrcode
 from io import BytesIO
-from django.core.files import File
 from PIL import Image, ImageDraw
 
 
-# class Category(models.Model):
-#     name = models.CharField("Название", max_length=50, unique=True)
-#     slug = models.SlugField(max_length=50, unique=True)
-#
-#     class Meta:
-#         verbose_name = "Категория"
-#         verbose_name_plural = "Категории"
-#
-#     def __str__(self):
-#         return self.name
-
-
 class Product(models.Model):
-    # category = models.ForeignKey(Category, on_delete=models.PROTECT, verbose_name='Категории')
     name = models.CharField(verbose_name="Название", max_length=200)
     number_doc = models.CharField(verbose_name="Номер Договора", unique=True, max_length=200)
     image = models.ImageField("Прикрепить файл", blank=True, null=True, upload_to="products/images/")
