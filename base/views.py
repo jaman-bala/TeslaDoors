@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from django.views.generic import FormView, TemplateView, ListView
+from django.views.generic import FormView, ListView, TemplateView
 #
 from .models import Product
 from .forms import ProductForm
