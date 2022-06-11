@@ -15,7 +15,6 @@ class ProductAdmin(admin.ModelAdmin):
     )
     search_fields = (
         "name",
-        "price",
         "number_doc",
 
 
