@@ -132,13 +132,16 @@ USE_TZ = True
 # #     'django.contrib.staticfiles.finders.FileSystemFinder',
 # #     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 # # )
+
 STATIC_URL = '/static/'
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-MEDIA_URL = "/media/"
+if DEBUG == 'True':
+    STATICFILES_DIRS = [
+        BASE_DIR / "static",
+    ]
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, "static")
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
