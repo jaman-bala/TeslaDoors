@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw
 
 
 class Product(models.Model):
-    name = models.CharField(verbose_name="Название", max_length=200)
+    name = models.CharField(verbose_name="Название", blank=True, null=True, max_length=200)
     number_doc = models.CharField(verbose_name="Номер Договора", unique=True, max_length=200)
     image = models.ImageField("Прикрепить файл", blank=True, null=True, upload_to="products/images/")
     qr_code = models.ImageField(upload_to='qr_codes', blank=True)
