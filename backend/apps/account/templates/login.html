@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static './css/login.css' %}">
+    <title>TeslaDoors</title>
+</head>
+<body>     
+<log>
+  <form action="" method="POST">
+    {% csrf_token %}
+  <section class="section__one">
+    <img src="{% static './img/logo.png' %}">
+     <div class="container">
+      <div class="pasford">
+          <div class="input">
+          {{form.username}}
+           {{form.password}}
+      </div>
+          <button class="pasford__btn">Вход</button>
+      </div>
+     </div>
+  </section>
+</form>
+</log>
+</body>       

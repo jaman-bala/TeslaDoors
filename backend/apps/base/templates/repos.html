@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load  static %}
+{% block content %}
+
+
+
+                    <main>
+                        <section>
+                            <table class="table">
+                                
+                                <thead>
+                                    <tr>
+                                     <th>Номер договора </th> 
+                                        <th>Имя Фамилия</th>
+                                        <th>Номер телефона</th>
+                                        <th>Дата</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for information in informationsi %}
+                                    <tr>
+                                        <td><a href="{% url 'code_detail' information.id %}"> {{information.number_doc }}</a></td>
+                                        <td><a href="{% url 'code_detail' information.id %}">{{ information.first_name }} {{ information.last_name }}</a></td>
+                                        <td><a href="{% url 'code_detail' information.id %}">{{ information.phone }}</a></td>
+                                        <td><a href="{% url 'code_detail' information.id %}">{{ information.created }}</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                </tbody>
+
+                            </table>
+                                  {% if page_obj.has_previous %}
+                                  <li class="page-item">
+                                    <a class="page-link" href="?page={{page_obj.previous_page_number}}" aria-label="Previous">
+                                      <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                  </li>
+                                  {% endif %}
+                                  <li class="page-item"><a class="page-link" href="?page={{page_obj.number}}">{{page_obj.number}}</a></li>
+                                  <li class="page-item">
+                                    {% if page_obj.has_next %}
+                                    <a class="page-link" href="?page={{page_obj.next_page_number}}" aria-label="Next">
+                                      <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                    {% endif %}
+                        </section>
+                        
+                      </main>
+
+
+
+
+{% endblock %}

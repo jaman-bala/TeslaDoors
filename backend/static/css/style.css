@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+}
+body{
+    background-image:url(../img/fon.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+header{
+    margin-top: 10px;
+}
+/* .section__one {
+
+} */
+.header__ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15px;
+    gap: 15px;
+}
+.header__li {
+    font: 800 23px/100% 'Manrope';
+    cursor: pointer;
+}
+.header__li:hover{
+    transform: translateY(-3px);
+    color: bl
+}
+a{
+    color: rgb(197, 12, 12);
+}
+
+form{
+    width: 830px;
+    height: 870px;
+    margin: 60px auto;
+    background:whitesmoke;
+    border-radius: 20px;
+    position: relative;
+}
+.box {
+   margin-left: 80px;
+}
+.input{
+  margin-top: 30px;
+  width: 550px;
+  height: 25px;
+  padding: 15px 20px 15px;
+  border-radius: 10px;
+  font-size: 20px;
+  border: none;
+}
+.box__btn{
+    width: 250px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font: 700 15px/100% 'Manrope';
+    color: whitesmoke;
+    cursor: pointer;
+    margin: 25px 50px 15px;
+    border: none;
+    background: linear-gradient(92.71deg, #0499DD 0%, #17C1BC 100%);
+}
+.form__btn{
+    width: 130px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font: 700 15px/100% 'Manrope';
+    color: black;
+    cursor: pointer;
+    margin: 120px 350px;
+    border: none;
+    position: absolute;
+    color: rgb(2, 0, 0);
+    bottom: -3%;
+    right: -23%;
+    background: rgb(127, 127, 199);
+}
+.form__btn:hover{
+    background: rgb(232, 0, 0);
+    color: black;
+}
+.a__btn{
+    color: rgb(25, 16, 208);
+}
+
+.col-75 {
+    float: left;
+    width: 85%;
+    margin-top: 6px;
+}
+
+@media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+}
