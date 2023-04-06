@@ -7,12 +7,21 @@ from PIL import Image, ImageDraw
 
 
 class Product(models.Model):
-    name = models.CharField(verbose_name="Название", blank=True, null=True, max_length=200)
     number_doc = models.CharField(verbose_name="Номер Договора", unique=True, max_length=200)
-    image = models.ImageField("Прикрепить файл", blank=True, null=True, upload_to="products/images/")
+    adress = models.CharField(verbose_name="Адрес", max_length=200)
+    title = models.CharField(verbose_name="Вид изделия", blank=True, null=True, max_length=200)
+    phone = models.CharField(verbose_name="Номер телефона", max_length=20)
+    first_name = models.CharField(verbose_name="Имя", max_length=200)
+    last_name = models.CharField(verbose_name="Фамилия", max_length=200)
+    comments = models.TextField(verbose_name="Коментарии", max_length=99999)
+    file1 = models.FileField("Прикрепить файл", blank=True, null=True, upload_to="file")
+    file2 = models.FileField("Прикрепить файл", blank=True, null=True, upload_to="file")
+    file3 = models.FileField("Прикрепить файл", blank=True, null=True, upload_to="file")
+    file4 = models.FileField("Прикрепить файл", blank=True, null=True, upload_to="file")
+    file5 = models.FileField("Прикрепить файл", blank=True, null=True, upload_to="file")
+    file6 = models.FileField("Прикрепить файл", blank=True, null=True, upload_to="file")
     qr_code = models.ImageField(upload_to='qr_codes', blank=True)
     is_active = models.BooleanField("Активный", default=True)
-    date = models.DateField(verbose_name='Дата договора', blank=True, null=True)
     created = models.DateTimeField(verbose_name="Дата создание", auto_now_add=True)
     updated = models.DateTimeField(verbose_name="Дата обновления", auto_now=True)
 

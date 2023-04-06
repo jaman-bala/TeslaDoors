@@ -1,128 +1,53 @@
 {% extends "base.html" %}
 {% load  static %}
 {% block content %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
-<style>
-.form-group{
- margin-bottom: 15px;
-}
-label{
- margin-bottom: 15px;
-}
-input,
-input::-webkit-input-placeholder {
- font-size: 11px;
- padding-top: 3px;
-}
-.form-control {
- height: auto!important;
-padding: 8px 12px !important;
-}
-.input-group {
- box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
-}
-#button {
- border: 1px solid #ccc;
- margin-top: 28px;
- padding: 6px 12px;
- color: #666;
- text-shadow: 0 1px #fff;
- cursor: pointer;
- border-radius: 3px 3px;
- box-shadow: 0 1px #fff inset, 0 1px #ddd;
- background: #f5f5f5;
- background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
- background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));
- background: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
- background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
- background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
- background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
- filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);
-}
-.main-form{
- margin-top: 30px;
- margin: 0 auto;
- max-width: 400px;
- padding: 10px 40px;
-background:#009edf;
-color: #FFF;
-text-shadow: none;
-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
-}
-span.input-group-addon i {
- color: #009edf;
- font-size: 17px;
-}
-.login-button{
- margin-top: 5px;
-}
-#id_category {
-    width:100%;
-    color: black;
-    padding: 10px 40px;
-}
-#id_category option {
-    font-family: Gill Sans, sans-serif;
-    padding: 10px 0;
-    font-style: italic;
-    font-size: 17px;
-}
-.bi {
-    color:white;
-    font-size:30px;
-    transition: 1s;
-}
-.bi:hover {
-
- color:red;
-}
 
 
-</style>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Doors</title>
-</head>
-<link rel="stylesheet" href="https://bootstraptema.ru/plugins/2015/b-v3-3-6/bootstrap.min.css"/>
 
-<div class="container">
-    <div class="container">
-        <div class="col-sm-12">
-            <div class="table-responsive">
-                <table style="box-sizing:border-box" class="table table-success table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">Название</th>
-                        <th scope="col">Номер договора</th>
-                        <th scope="col">QR code</th>
-                        <th scope="col">Дата договора</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for information in informationsi %}
-                    <tr>
-                        <td>{{ information.name }}</td>
-                        <td class="text-left">{{ information.number_doc }}</td>
-                        <td>
-                            <img style="width:100px; margin-right:30px;" src="{{ information.qr_code.url }}" alt="">
-                            <a class="btn" href="{{ information.qr_code.url }}" download>
-                                <i style="" class="bi bi-file-earmark-arrow-down-fill"></i>
-                                <td class="text-left">{{ information.date }}</td>
-                            </a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                    <main>
+                        <section>
+                            <table class="table">
+                                
+                                <thead>
+                                    <tr>
+                                     <th>Номер договора </th> 
+                                        <th>Имя Фамилия</th>
+                                        <th>Номер телефона</th>
+                                        <th>Дата</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for information in informationsi %}
+                                    <tr>
+                                        <td><a href="{% url 'code_detail' information.id %}"> {{information.number_doc }}</a></td>
+                                        <td><a href="{% url 'code_detail' information.id %}">{{ information.first_name }} {{ information.last_name }}</a></td>
+                                        <td><a href="{% url 'code_detail' information.id %}">{{ information.phone }}</a></td>
+                                        <td><a href="{% url 'code_detail' information.id %}">{{ information.created }}</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                </tbody>
+
+                            </table>
+                                  {% if page_obj.has_previous %}
+                                  <li class="page-item">
+                                    <a class="page-link" href="?page={{page_obj.previous_page_number}}" aria-label="Previous">
+                                      <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                  </li>
+                                  {% endif %}
+                                  <li class="page-item"><a class="page-link" href="?page={{page_obj.number}}">{{page_obj.number}}</a></li>
+                                  <li class="page-item">
+                                    {% if page_obj.has_next %}
+                                    <a class="page-link" href="?page={{page_obj.next_page_number}}" aria-label="Next">
+                                      <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                    {% endif %}
+                        </section>
+                        
+                    </main>
 
 
-    </div>
-</div>
+
+
 {% endblock %}

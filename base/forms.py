@@ -5,28 +5,51 @@ from .models import Product
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ('name', 'number_doc', 'image', 'date',)
+        fields = ('title', 'number_doc', 'adress', 'phone', 'file1', 'file2', 'file3', 'first_name', 'last_name')
         widgets = {
-            "name": forms.TextInput(
-                attrs={"class": "form-control",
-                       "placeholder": "Название",
-                       }),
+            "title": forms.TextInput(
+                attrs={"class": "input",
+                        "placeholder": "Вид изделия"}),
 
             "number_doc": forms.TextInput(
-                attrs={"class": "form-control",
+                attrs={"class": "input",
                        "placeholder": "Номер договора",
                        }),
 
-            "image": forms.FileInput(
-                attrs={"class": "form-control",
-                       "placeholder": "",
+            "adress": forms.TextInput(
+                attrs={"class": "input",
+                       "placeholder": "Адрес",
                        }),
-            'date': forms.DateInput(
-                format=('%Y-%m-%d'),
-                attrs={'class': 'form-control',
-                       'placeholder': 'Select a date',
-                       'type': 'date'
+
+            "phone": forms.TextInput(
+                attrs={"class": "input",
+                       "placeholder": "Телефон",
                        }),
+
+            "first_name": forms.TextInput(
+                attrs={"class": "input",
+                       "placeholder": "Имя",
+                       }),
+
+            "last_name": forms.TextInput(
+                attrs={"class": "input",
+                       "placeholder": "Фамилия",
+                       }),
+
+            "file1": forms.FileInput(
+                attrs={
+                       "placeholder": "Прекрепить файл",
+                       }),
+            "file2": forms.FileInput(
+                attrs={
+                       "placeholder": "Прекрепить файл",
+                       }),
+            
+            "file3": forms.FileInput(
+                attrs={
+                       "placeholder": "Прекрепить файл",
+                       }),
+
 
 
         }

@@ -6,7 +6,7 @@ from .models import Product
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
-        "name",
+        "title",
         "is_active",
         "created",
         "number_doc",
@@ -14,7 +14,7 @@ class ProductAdmin(admin.ModelAdmin):
         "updated",
     )
     search_fields = (
-        "name",
+        "title",
         "number_doc",
 
 
