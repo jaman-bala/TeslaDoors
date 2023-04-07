@@ -3,12 +3,24 @@
 {% block content %}
 
     <main>
-        <section>
+        <section class="section__one">
             <div class="container">
                 <div class="card">
                     <div class="qr__code">
                         <img  src="{{ code.qr_code.url }}" alt="QRCODE"> 
                     </div>
+                    <div class="infor">
+                        <div class="dogovor">
+                            <p class="dogovor__p">Номер договора</p>
+                        </div>
+                        <div class="name">
+                            <p class="name__p">Фамилия Имя</p>
+                        </div>
+                        <div class="number">
+                            <p class="number__p">Номер телефона</p>
+                        </div>
+                    </div>
+                    <button class="code__dtn">Загрузить</button>
                 </div>
             </div>
         </section>
