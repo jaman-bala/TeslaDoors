@@ -35,7 +35,7 @@ class Product(models.Model):
 
     def save(self, *args, **kwargs):
         qrcode_img = qrcode.make(self.number_doc)
-        canvas = Image.new('RGB', (290, 290), 'white')
+        canvas = Image.new('RGB', (390, 390), 'white')
         draw = ImageDraw.Draw(canvas)
         canvas.paste(qrcode_img)
         fname = f'qr_code-{self.number_doc}' + '.png'
