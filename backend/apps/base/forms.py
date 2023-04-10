@@ -5,7 +5,7 @@ from .models import Product
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ('title', 'number_doc', 'adress', 'phone', 'file1', 'file2', 'file3', 'first_name', 'last_name')
+        fields = ('title', 'number_doc', 'adress', 'phone', 'file1', 'file2', 'file3', 'first_name', 'last_name', 'sum')
         widgets = {
             "title": forms.TextInput(
                 attrs={"class": "input",
@@ -34,6 +34,10 @@ class ProductForm(forms.ModelForm):
             "last_name": forms.TextInput(
                 attrs={"class": "input",
                        "placeholder": "Фамилия",
+                       }),
+            "sum": forms.TextInput(
+                attrs={"class": "input",
+                       "placeholder": "Сумма",
                        }),
 
             "file1": forms.FileInput(
