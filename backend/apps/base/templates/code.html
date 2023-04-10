@@ -8,19 +8,23 @@
                 <div class="card">
                     <div class="qr__code">
                         <img  src="{{ code.qr_code.url }}" alt="QRCODE"> 
+                        <div class="link_download_code">
+                            <a class="download_code" href="{{ code.qr_code.url }}" download="{{ code.qr_code.url }}">Скачать</a>
+                        </div>
                     </div>
                     <div class="infor">
                         <div class="dogovor">
-                            <p class="dogovor__p">Номер договора</p>
+                            <p class="dogovor__p">{{code.number_doc }}</p>
                         </div>
                         <div class="name">
-                            <p class="name__p">Фамилия Имя</p>
+                            <p class="name__p">{{code.first_name }} {{code.last_name }}</p>
                         </div>
                         <div class="number">
-                            <p class="number__p">Номер телефона</p>
+                            <p class="number__p">{{code.phone }}</p>
                         </div>
+                       
                     </div>
-                    <button class="code__dtn">Загрузить</button>
+                    
                 </div>
             </div>
         </section>

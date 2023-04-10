@@ -89,7 +89,7 @@ a{
     margin: 90px 50px;
     
 }
-.code__dtn{
+.download_code{
     width: 150px;
     height: 50px;
     font-size: 20px;
@@ -98,10 +98,18 @@ a{
     background: rgba(45, 207, 210, 0.923);
     color: whitesmoke;
     cursor: pointer;
-   position: absolute;
-   top: 83%;
-   left: 10%;
+    position: absolute;
+    top: 83%;
+    left: 8%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
-.code__dtn:hover{
+.download_code:hover{
     color: black;
+}
+
+.link_download_code {
+    margin-top: 50px;
+    
 }

@@ -4,6 +4,7 @@ from django.core.files import File
 import qrcode
 from io import BytesIO
 from PIL import Image, ImageDraw
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Product(models.Model):
@@ -13,7 +14,7 @@ class Product(models.Model):
     phone = models.CharField(verbose_name="Номер телефона", max_length=20)
     first_name = models.CharField(verbose_name="Имя", max_length=200)
     last_name = models.CharField(verbose_name="Фамилия", max_length=200)
-    comments = models.TextField(verbose_name="Коментарии", max_length=99999)
+    comments =  RichTextUploadingField('Комментарии')
     file1 = models.FileField("Прикрепить файл", blank=True, null=True, upload_to="file")
     file2 = models.FileField("Прикрепить файл", blank=True, null=True, upload_to="file")
     file3 = models.FileField("Прикрепить файл", blank=True, null=True, upload_to="file")
